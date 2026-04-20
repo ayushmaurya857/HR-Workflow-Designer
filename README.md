@@ -2,8 +2,7 @@
 
 A visual, drag-and-drop HR workflow prototyping tool built for the Tredence Analytics Full-Stack Engineering Internship case study.
 
-![Preview](<img width="1357" height="621" alt="image" src="https://github.com/user-attachments/assets/6e7ca12e-6217-4a3c-b01d-ef8eb79f91e9" />
-)
+![Preview](./preview.png)
 
 ---
 
