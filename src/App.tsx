@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ReactFlowProvider } from '@xyflow/react';
 import { WorkflowCanvas } from './components/canvas/WorkflowCanvas';
 import { NodeSidebar } from './components/canvas/NodeSidebar';
@@ -12,7 +12,7 @@ function AppContent() {
   const selectedNodeId = useWorkflowStore((s) => s.selectedNodeId);
   const theme = useWorkflowStore((s) => s.theme);
 
-  React.useEffect(() => {
+  useEffect(() => {
     document.documentElement.dataset.theme = theme;
   }, [theme]);
 
