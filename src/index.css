@@ -5,6 +5,42 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
+  /* LIGHT THEME (Default) */
+  --bg-base:         #f4f7fa;
+  --bg-surface:      #ffffff;
+  --bg-elevated:     #ffffff;
+  --bg-glass:        rgba(255, 255, 255, 0.85);
+  --bg-glass-light:  rgba(0, 0, 0, 0.04);
+
+  --border-subtle:   rgba(0, 0, 0, 0.08);
+  --border-muted:    rgba(0, 0, 0, 0.15);
+
+  --text-primary:    #1e293b;
+  --text-secondary:  #475569;
+  --text-muted:      #94a3b8;
+
+  --accent-start:     #10b981;
+  --accent-task:      #3b82f6;
+  --accent-approval:  #f59e0b;
+  --accent-automated: #a855f7;
+  --accent-end:       #f43f5e;
+
+  --radius-sm:  6px;
+  --radius-md:  10px;
+  --radius-lg:  16px;
+  --radius-xl:  22px;
+
+  --shadow-sm:  0 2px 8px rgba(0,0,0,0.06);
+  --shadow-md:  0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg:  0 8px 30px rgba(0,0,0,0.12);
+
+  --sidebar-w:      240px;
+  --toolbar-h:      58px;
+  --form-panel-w:   320px;
+  --transition:     all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:root[data-theme="dark"] {
   --bg-base:         #080d1a;
   --bg-surface:      #0d1427;
   --bg-elevated:     #111b35;
@@ -18,25 +54,9 @@
   --text-secondary:  #8b9dc3;
   --text-muted:      #4a5a80;
 
-  --accent-start:     #10b981;
-  --accent-task:      #3b82f6;
-  --accent-approval:  #f59e0b;
-  --accent-automated: #a855f7;
-  --accent-end:       #f43f5e;
-
-  --radius-sm:  6px;
-  --radius-md:  10px;
-  --radius-lg:  16px;
-  --radius-xl:  22px;
-
   --shadow-sm:  0 2px 8px rgba(0,0,0,0.3);
   --shadow-md:  0 4px 24px rgba(0,0,0,0.45);
   --shadow-lg:  0 8px 40px rgba(0,0,0,0.6);
-
-  --sidebar-w:      240px;
-  --toolbar-h:      58px;
-  --form-panel-w:   320px;
-  --transition:     all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 html, body, #root {
@@ -510,7 +530,7 @@ html, body, #root {
   padding-right: 28px;
   cursor: pointer;
 }
-.form-select option { background: #1e293b; }
+.form-select option { background: var(--bg-elevated); color: var(--text-primary); }
 
 .error-text { font-size: 11px; color: var(--accent-end); }
 

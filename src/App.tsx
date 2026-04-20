@@ -10,6 +10,11 @@ import { useWorkflowStore } from './store/workflowStore';
 function AppContent() {
   const [sandboxOpen, setSandboxOpen] = useState(false);
   const selectedNodeId = useWorkflowStore((s) => s.selectedNodeId);
+  const theme = useWorkflowStore((s) => s.theme);
+
+  React.useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+  }, [theme]);
 
   return (
     <div className="app-root">

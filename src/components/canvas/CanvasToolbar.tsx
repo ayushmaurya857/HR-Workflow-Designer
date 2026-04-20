@@ -5,7 +5,7 @@ import { serializeWorkflow, downloadJSON } from '../../utils/serializer';
 import type { WorkflowNode } from '../../store/workflowStore';
 import type { Edge } from '@xyflow/react';
 import {
-  Play, Download, Upload, Trash2, AlertTriangle, GitBranch
+  Play, Download, Upload, Trash2, AlertTriangle, GitBranch, Sun, Moon
 } from 'lucide-react';
 
 interface Props {
@@ -13,7 +13,7 @@ interface Props {
 }
 
 export const CanvasToolbar: React.FC<Props> = ({ onSimulate }) => {
-  const { nodes, edges, setValidationErrors, importWorkflow, clearCanvas } = useWorkflowStore();
+  const { nodes, edges, setValidationErrors, importWorkflow, clearCanvas, theme, toggleTheme } = useWorkflowStore();
   const importRef = useRef<HTMLInputElement>(null);
 
   const handleValidate = () => {
@@ -66,6 +66,10 @@ export const CanvasToolbar: React.FC<Props> = ({ onSimulate }) => {
           Run Simulation
         </button>
         <div className="toolbar-divider" />
+        <button className="toolbar-btn" onClick={toggleTheme} title="Toggle theme">
+          {theme === 'dark' ? <Sun size={15} /> : <Moon size={15} />}
+          {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
+        </button>
         <button className="toolbar-btn" onClick={handleExport} title="Export as JSON">
           <Download size={15} />
           Export

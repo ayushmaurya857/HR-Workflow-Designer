@@ -20,6 +20,10 @@ interface WorkflowStore {
   edges: Edge[];
   selectedNodeId: string | null;
   validationErrors: ValidationError[];
+  theme: 'light' | 'dark';
+
+  // Actions
+  toggleTheme: () => void;
 
   // Canvas actions
   onNodesChange: (changes: NodeChange[]) => void;
@@ -87,6 +91,9 @@ export const useWorkflowStore = create<WorkflowStore>((set) => ({
   edges: SAMPLE_EDGES,
   selectedNodeId: null,
   validationErrors: [],
+  theme: 'light',
+
+  toggleTheme: () => set((state) => ({ theme: state.theme === 'light' ? 'dark' : 'light' })),
 
   onNodesChange: (changes) =>
     set((state) => ({

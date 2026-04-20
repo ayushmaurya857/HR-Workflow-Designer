@@ -18,8 +18,10 @@ export const WorkflowCanvas: React.FC = () => {
   const {
     nodes, edges,
     onNodesChange, onEdgesChange, onConnect,
-    addNode, setSelectedNode,
+    addNode, setSelectedNode, theme,
   } = useWorkflowStore();
+
+  const isDark = theme === 'dark';
 
   const reactFlowWrapper = useRef<HTMLDivElement>(null);
   const reactFlowInstance = useRef<ReactFlowInstance | null>(null);
@@ -77,7 +79,7 @@ export const WorkflowCanvas: React.FC = () => {
         snapGrid={[15, 15]}
         defaultEdgeOptions={{ type: 'smoothstep', animated: true }}
       >
-        <Background variant={BackgroundVariant.Dots} gap={20} size={1} color="rgba(255,255,255,0.07)" />
+        <Background variant={BackgroundVariant.Dots} gap={20} size={1} color={isDark ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.06)"} />
         <Controls className="flow-controls" />
         <MiniMap
           className="flow-minimap"
@@ -88,7 +90,7 @@ export const WorkflowCanvas: React.FC = () => {
             };
             return colors[n.type ?? ''] ?? '#888';
           }}
-          maskColor="rgba(10,15,30,0.8)"
+          maskColor={isDark ? "rgba(10,15,30,0.8)" : "rgba(244,247,250,0.8)"}
         />
         <Panel position="top-center">
           <div className="canvas-watermark">HR Workflow Designer</div>
