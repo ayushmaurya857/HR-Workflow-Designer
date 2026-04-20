@@ -5,7 +5,7 @@ import { serializeWorkflow, downloadJSON } from '../../utils/serializer';
 import type { WorkflowNode } from '../../store/workflowStore';
 import type { Edge } from '@xyflow/react';
 import {
-  Play, Download, Upload, Trash2, AlertTriangle, GitBranch, Sun, Moon
+  Play, Download, Upload, Trash2, AlertTriangle, Sun, Moon
 } from 'lucide-react';
 
 interface Props {
@@ -51,7 +51,6 @@ export const CanvasToolbar: React.FC<Props> = ({ onSimulate }) => {
   return (
     <header className="canvas-toolbar">
       <div className="toolbar-brand">
-        <GitBranch size={20} />
         <span className="toolbar-title">HR Workflow Designer</span>
         <span className="toolbar-badge">{nodes.length} node{nodes.length !== 1 ? 's' : ''}</span>
       </div>

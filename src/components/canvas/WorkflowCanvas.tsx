@@ -90,7 +90,7 @@ export const WorkflowCanvas: React.FC = () => {
             };
             return colors[n.type ?? ''] ?? '#888';
           }}
-          maskColor={isDark ? "rgba(10,15,30,0.8)" : "rgba(244,247,250,0.8)"}
+          maskColor={isDark ? "rgba(10,15,30,0.8)" : "rgba(0, 0, 0, 0.15)"}
         />
         <Panel position="top-center">
           <div className="canvas-watermark">HR Workflow Designer</div>

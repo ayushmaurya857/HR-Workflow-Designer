@@ -146,9 +146,13 @@ html, body, #root {
   font-family: 'Inter', sans-serif;
 }
 .toolbar-btn:hover {
-  background: rgba(255,255,255,0.08);
+  background: rgba(0, 0, 0, 0.08);
   color: var(--text-primary);
-  border-color: rgba(255,255,255,0.2);
+  border-color: var(--border-muted);
+}
+:root[data-theme="dark"] .toolbar-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .toolbar-btn-primary {
@@ -286,10 +290,18 @@ html, body, #root {
   border-radius: var(--radius-md) !important;
   overflow: hidden;
 }
+.react-flow__minimap-viewport {
+  stroke: #6478c8 !important;
+  stroke-width: 4 !important;
+  fill: rgba(100, 120, 200, 0.05) !important;
+}
 
 .react-flow__edge-path {
-  stroke: rgba(100,120,200,0.5) !important;
+  stroke: #6478c8 !important;
   stroke-width: 2 !important;
+}
+:root[data-theme="dark"] .react-flow__edge-path {
+  stroke: rgba(100,120,200,0.5) !important;
 }
 .react-flow__edge.animated .react-flow__edge-path {
   stroke: rgba(99,102,241,0.7) !important;
@@ -404,9 +416,13 @@ html, body, #root {
   width: 10px !important;
   height: 10px !important;
   border-radius: 50% !important;
-  border: 2px solid rgba(100,120,200,0.8) !important;
-  background: var(--bg-base) !important;
+  background: #6478c8 !important;
+  border: 1px solid #fff !important;
   transition: var(--transition);
+}
+:root[data-theme="dark"] .flow-handle {
+  background: var(--bg-surface) !important;
+  border: 2px solid rgba(100,120,200,1) !important;
 }
 .flow-handle:hover {
   background: rgba(99,102,241,0.6) !important;
@@ -476,7 +492,13 @@ html, body, #root {
 }
 .form-panel-body::-webkit-scrollbar { width: 5px; }
 .form-panel-body::-webkit-scrollbar-track { background: transparent; }
-.form-panel-body::-webkit-scrollbar-thumb { background: var(--border-muted); border-radius: 3px; }
+.form-panel-body::-webkit-scrollbar-thumb { 
+  background: var(--text-muted); 
+  border-radius: 20px; 
+}
+.form-panel-body::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
 
 /* ─── Form Fields ─────────────────────────────────────────────────────────── */
 .node-form { display: flex; flex-direction: column; gap: 14px; }
@@ -584,11 +606,21 @@ html, body, #root {
 .toggle-track {
   width: 36px;
   height: 20px;
-  background: var(--bg-elevated);
+  background: #94a3b8;
   border: 1px solid var(--border-muted);
   border-radius: 20px;
   transition: var(--transition);
   position: relative;
+}
+.toggle-track--on {
+  background: #6366f1 !important;
+  border-color: #4f46e5 !important;
+}
+:root[data-theme="dark"] .toggle-track {
+  background: var(--bg-elevated);
+}
+.toggle-track--on .toggle-thumb {
+  left: 18px !important;
 }
 .toggle-input:checked ~ .toggle-track {
   background: rgba(99,102,241,0.6);

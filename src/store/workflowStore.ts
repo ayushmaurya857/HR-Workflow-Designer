@@ -91,7 +91,7 @@ export const useWorkflowStore = create<WorkflowStore>((set) => ({
   edges: SAMPLE_EDGES,
   selectedNodeId: null,
   validationErrors: [],
-  theme: 'light',
+  theme: 'dark',
 
   toggleTheme: () => set((state) => ({ theme: state.theme === 'light' ? 'dark' : 'light' })),
 
