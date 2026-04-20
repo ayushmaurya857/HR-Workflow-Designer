@@ -6,7 +6,8 @@ import { useWorkflowStore } from '../../store/workflowStore';
 
 export const AutomatedNode: React.FC<NodeProps> = ({ data, selected, id }) => {
   const d = data as unknown as AutomatedNodeData;
-  const errors = useWorkflowStore((s) => s.validationErrors.filter((e) => e.nodeId === id));
+  const validationErrors = useWorkflowStore((s) => s.validationErrors);
+  const errors = validationErrors.filter((e) => e.nodeId === id);
   const hasError = errors.some((e) => e.severity === 'error');
   const hasWarning = !hasError && errors.some((e) => e.severity === 'warning');
 
